@@ -1,0 +1,396 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "additionalProperties": false,
+  "category": "biospecimen",
+  "constraints": null,
+  "description": "Pertaining to a portion of the whole; any one of two or more samples of something, of the same volume or weight.\n",
+  "id": "aliquot",
+  "links": [
+    {
+      "backref": "aliquots",
+      "label": "derived_from",
+      "multiplicity": "many_to_many",
+      "name": "samples",
+      "required": true,
+      "target_type": "sample"
+    }
+  ],
+  "program": "*",
+  "project": "*",
+  "properties": {
+    "a260_a280_ratio": {
+      "term": {
+        "description": "Numeric value that represents the sample ratio of nucleic acid absorbance at 260 nm and 280 nm, used to determine a measure of DNA purity.\n",
+        "termDef": {
+          "cde_id": 5432595,
+          "cde_version": 1,
+          "source": "caDSR",
+          "term": "Nucleic Acid Absorbance at 260 And Absorbance at 280 DNA Purity Ratio Value",
+          "term_url": "https://cdebrowser.nci.nih.gov/cdebrowserClient/cdeBrowser.html#/search?publicId=5432595&version=1.0"
+        }
+      },
+      "type": "number"
+    },
+    "aliquot_quantity": {
+      "term": {
+        "description": "The quantity in micrograms (ug) of the aliquot(s) derived from the analyte(s) shipped for sequencing and characterization.\n",
+        "termDef": {
+          "cde_id": null,
+          "cde_version": null,
+          "source": null,
+          "term": "Biospecimen Aliquot Quantity",
+          "term_url": null
+        }
+      },
+      "type": "number"
+    },
+    "aliquot_volume": {
+      "term": {
+        "description": "The volume in microliters (ml) of the aliquot(s) derived from the analyte(s) shipped for sequencing and characterization.\n",
+        "termDef": {
+          "cde_id": null,
+          "cde_version": null,
+          "source": null,
+          "term": "Biospecimen Aliquot Volume",
+          "term_url": null
+        }
+      },
+      "type": "number"
+    },
+    "amount": {
+      "term": {
+        "description": "Weight in grams or volume in mL.\n"
+      },
+      "type": "number"
+    },
+    "analyte_quantity": {
+      "term": {
+        "description": "The quantity in micrograms (ug) of the analyte(s) derived from the analyte(s) shipped for sequencing and characterization.\n",
+        "termDef": {
+          "cde_id": null,
+          "cde_version": null,
+          "source": null,
+          "term": "Biospecimen Analyte Quantity",
+          "term_url": null
+        }
+      },
+      "type": "number"
+    },
+    "analyte_type": {
+      "enum": [
+        "DNA",
+        "EBV Immortalized Normal",
+        "FFPE DNA",
+        "FFPE RNA",
+        "GenomePlex (Rubicon) Amplified DNA",
+        "Repli-G (Qiagen) DNA",
+        "Repli-G Pooled (Qiagen) DNA",
+        "Repli-G X (Qiagen) DNA",
+        "RNA",
+        "Total RNA"
+      ],
+      "term": {
+        "description": "Text term that represents the kind of molecular specimen analyte.\n",
+        "termDef": {
+          "cde_id": 2513915,
+          "cde_version": 2,
+          "source": "caDSR",
+          "term": "Molecular Specimen Type Text Name",
+          "term_url": "https://cdebrowser.nci.nih.gov/cdebrowserClient/cdeBrowser.html#/search?publicId=2513915&version=2.0"
+        }
+      }
+    },
+    "analyte_volume": {
+      "term": {
+        "description": "The volume in microliters (ml) of the analyte(s) derived from the analyte(s) shipped for sequencing and characterization.\n",
+        "termDef": {
+          "cde_id": null,
+          "cde_version": null,
+          "source": null,
+          "term": "Biospecimen Analyte Volume",
+          "term_url": null
+        }
+      },
+      "type": "number"
+    },
+    "concentration": {
+      "term": {
+        "description": "Numeric value that represents the concentration of an analyte or aliquot extracted from the sample or sample portion, measured in milligrams per milliliter.\n",
+        "termDef": {
+          "cde_id": 5432594,
+          "cde_version": 1,
+          "source": "caDSR",
+          "term": "Biospecimen Analyte or Aliquot Extracted Concentration Milligram per Milliliter Value",
+          "term_url": "https://cdebrowser.nci.nih.gov/cdebrowserClient/cdeBrowser.html#/search?publicId=5432594&version=1.0"
+        }
+      },
+      "type": "number"
+    },
+    "created_datetime": {
+      "oneOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "term": {
+        "description": "A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]\n"
+      }
+    },
+    "id": {
+      "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+      "systemAlias": "node_id",
+      "term": {
+        "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.\n",
+        "termDef": {
+          "cde_id": "C54100",
+          "cde_version": null,
+          "source": "NCIt",
+          "term": "Universally Unique Identifier",
+          "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100"
+        }
+      },
+      "type": "string"
+    },
+    "normal_tumor_genotype_snp_match": {
+      "enum": [
+        "Yes",
+        "No",
+        "Unknown",
+        "Not Reported"
+      ],
+      "term": {
+        "description": "Text term that represents whether or not the genotype of the normal tumor matches or if the data is not available.\n",
+        "termDef": {
+          "cde_id": 4588156,
+          "cde_version": 1,
+          "source": "caDSR",
+          "term": "Normal Tumor Genotype Match Indicator",
+          "term_url": "https://cdebrowser.nci.nih.gov/cdebrowserClient/cdeBrowser.html#/search?publicId=4588156&version=1.0"
+        }
+      }
+    },
+    "project_id": {
+      "term": {
+        "description": "Unique ID for any specific defined piece of work that is undertaken or attempted to meet a single requirement.\n"
+      },
+      "type": "string"
+    },
+    "ribosomal_rna_28s_16s_ratio": {
+      "term": {
+        "description": "The 28S/18S ribosomal RNA band ratio used to assess the quality of total RNA.\n",
+        "termDef": {
+          "cde_id": null,
+          "cde_version": null,
+          "source": null,
+          "term": "28s/18s Ribosomal RNA Ratio",
+          "term_url": null
+        }
+      },
+      "type": "number"
+    },
+    "samples": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": true,
+            "maxItems": 1,
+            "minItems": 1,
+            "properties": {
+              "id": {
+                "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                "term": {
+                  "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.\n",
+                  "termDef": {
+                    "cde_id": "C54100",
+                    "cde_version": null,
+                    "source": "NCIt",
+                    "term": "Universally Unique Identifier",
+                    "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100"
+                  }
+                },
+                "type": "string"
+              },
+              "submitter_id": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        {
+          "additionalProperties": true,
+          "properties": {
+            "id": {
+              "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+              "term": {
+                "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.\n",
+                "termDef": {
+                  "cde_id": "C54100",
+                  "cde_version": null,
+                  "source": "NCIt",
+                  "term": "Universally Unique Identifier",
+                  "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100"
+                }
+              },
+              "type": "string"
+            },
+            "submitter_id": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      ]
+    },
+    "shipment_date": {
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+      "term": {
+        "description": "The date item was shipped in YYYY-MM-DD format.\n"
+      },
+      "type": "string"
+    },
+    "shipment_destination": {
+      "enum": [
+        "Baylor College of Medicine",
+        "Washington University",
+        "HudsonAlpha",
+        "Broad Institute"
+      ],
+      "term": {
+        "description": "The destination of the shipment.\n"
+      }
+    },
+    "shipment_origin": {
+      "term": {
+        "description": "The origin of the shipment.\n"
+      },
+      "type": "string"
+    },
+    "source_center": {
+      "term": {
+        "description": "Name of the center that provided the item.\n"
+      },
+      "type": "string"
+    },
+    "spectrophotometer_method": {
+      "term": {
+        "description": "Name of the method used to determine the concentration of purified nucleic acid within a solution.\n",
+        "termDef": {
+          "cde_id": 3008378,
+          "cde_version": 1,
+          "source": "caDSR",
+          "term": "Purification Nucleic Acid Solution Concentration Determination Method Type",
+          "term_url": "https://cdebrowser.nci.nih.gov/cdebrowserClient/cdeBrowser.html#/search?publicId=3008378&version=1.0"
+        }
+      },
+      "type": "string"
+    },
+    "state": {
+      "default": "validated",
+      "downloadable": [
+        "uploaded",
+        "md5summed",
+        "validating",
+        "validated",
+        "error",
+        "invalid",
+        "released"
+      ],
+      "oneOf": [
+        {
+          "enum": [
+            "uploading",
+            "uploaded",
+            "md5summing",
+            "md5summed",
+            "validating",
+            "error",
+            "invalid",
+            "suppressed",
+            "redacted",
+            "live"
+          ]
+        },
+        {
+          "enum": [
+            "validated",
+            "submitted",
+            "released"
+          ]
+        }
+      ],
+      "public": [
+        "live"
+      ],
+      "term": {
+        "description": "The current state of the object.\n"
+      }
+    },
+    "submitter_id": {
+      "description": "The identifier assigned by the submitter.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "type": {
+      "type": "string"
+    },
+    "updated_datetime": {
+      "oneOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "term": {
+        "description": "A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]\n"
+      }
+    },
+    "well_number": {
+      "term": {
+        "description": "Numeric value that represents the the well location within a plate for the analyte or aliquot from the sample.\n",
+        "termDef": {
+          "cde_id": 5432613,
+          "cde_version": 1,
+          "source": "caDSR",
+          "term": "Biospecimen Analyte or Aliquot Plate Well Number",
+          "term_url": "https://cdebrowser.nci.nih.gov/cdebrowserClient/cdeBrowser.html#/search?publicId=5432613&version=1.0"
+        }
+      },
+      "type": "string"
+    }
+  },
+  "required": [
+    "submitter_id",
+    "analyte_type"
+  ],
+  "submittable": true,
+  "systemProperties": [
+    "id",
+    "project_id",
+    "state",
+    "created_datetime",
+    "updated_datetime"
+  ],
+  "title": "Aliquot",
+  "type": "object",
+  "uniqueKeys": [
+    [
+      "id"
+    ],
+    [
+      "project_id",
+      "submitter_id"
+    ]
+  ],
+  "validators": []
+}
